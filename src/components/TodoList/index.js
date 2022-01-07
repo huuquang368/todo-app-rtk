@@ -19,26 +19,26 @@ function TodoList() {
         id: uuidv4(),
         name: todoName,
         priority: priority,
-        complete: false,
+        completed: false,
       })
     );
 
     setTodoName("");
     setPriority("Medium");
   };
-  const handleInputChange = (e) => {
-    setTodoName(e.target.value);
-  };
-
-  const handlePriorityChange = (value) => {
-    setPriority(value);
-  };
+  const handleInputChange = (e) => setTodoName(e.target.value);
+  const handlePriorityChange = (value) => setPriority(value);
 
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>
       <Col span={24} style={{ height: "calc(100% - 40px)", overflowY: "auto" }}>
         {todoList.map((item) => (
-          <Todo name={item.name} priority={item.priority} key={item.id} />
+          <Todo
+            key={item.id}
+            name={item.name}
+            priority={item.priority}
+            completed={item.completed}
+          />
         ))}
       </Col>
       <Col span={24}>
