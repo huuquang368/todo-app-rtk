@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Col, Row, Input, Button, Select, Tag } from "antd";
-import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 import Todo from "../Todo";
 import { addTodo } from "../../redux/actions";
 import { todosRemainingSelector } from "../../redux/selectors";
@@ -35,6 +35,7 @@ function TodoList() {
         {todoList.map((item) => (
           <Todo
             key={item.id}
+            id={item.id}
             name={item.name}
             priority={item.priority}
             completed={item.completed}
